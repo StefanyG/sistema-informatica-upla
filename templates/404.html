@@ -1,0 +1,41 @@
+{% extends 'layout/app.html' %}
+
+{% load static %}
+
+{% block body %}
+    <div id="content-wrapper">
+
+      <div class="container-fluid">
+
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="{% url 'home' %}">Inicio</a>
+          </li>
+          <li class="breadcrumb-item active">404 Error</li>
+        </ol>
+
+        <!-- Page Content -->
+        <h1 class="display-1">404</h1>
+        <p class="lead">Página no encontrada. Puedes
+          <a href="javascript:history.back()">volver</a>
+          a la página anterior, o
+          <a href="{% url 'home' %}">volver al inicio</a>.</p>
+
+      </div>
+      <!-- /.container-fluid -->
+
+      <!-- Sticky Footer -->
+      <footer class="sticky-footer">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright © 2021</span>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+{% endblock %}
+{% block javascript %}
+
+{% endblock %}

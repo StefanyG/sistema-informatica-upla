@@ -1,0 +1,103 @@
+{% extends 'layout/app.html' %}
+
+{% load static %}
+
+{% block body %}
+
+    <div id="content-wrapper">
+
+        <div class="container-fluid">
+            <!-- Breadcrumbs-->
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="{% url 'list' %}">Listado</a>
+                </li>
+                <li class="breadcrumb-item active">Perfil</li>
+            </ol>
+            
+            <div class="card mb-3">
+                <div class="card-header">
+                    <i class="fas fa-table"></i>
+                    Perfil Persona
+                    <a  class="btn btn-sm btn-warning btn-lg" href="/edit/{{ perfils.id_persona }}"style="padding: 12px; float: right;  color: white;">Editar Perfil</a>
+                    <a  class="btn btn-sm btn-success btn-lg" href="{% url 'generate-pdf-perfil'  perfils.id_persona %}" style="padding: 12px; float: right; color: white;">Generar PDF</a>
+
+                    
+                </div>
+                </div>
+                <div class="form-label-group">
+      <img src="{{ perfils.foto.url }}" alt="Smiley face" width="150" height="150" class="center" style="display: block;
+  margin-left: auto;
+  margin-right: auto;
+  ">
+</div>
+
+                <div class="table-responsive">
+              <table class="table">
+                    <tbody>
+
+                      <tr>
+                        <th>Nombres:</th>
+                        <td>{{ perfils.nombre }}</td>                      
+                      </tr>
+                      <tr>
+                        <th>Apellidos:</th>
+                        <td>{{ perfils.apellido }}</td>
+                      </tr>
+                      <tr>
+                        <th>Rut:</th>
+                        <td>{{ perfils.rut }}-{{perfils.dverificador}}</td>
+                      </tr>
+                      <tr>
+                        <th>Teléfono:</th>
+                        <td>{{ perfils.telefono }}</td>                      
+                      </tr>
+                      <tr>
+                        <th>Fecha de Nacimiento:</th>
+                        <td>{{ perfils.fecha_nacimiento }}</td>                      
+                      </tr>
+                      <tr>
+                        <th>Correo:</th>
+                        <td>{{ perfils.correo }}</td>                      
+                      </tr>
+                      <tr>
+                        <th>Dirección:</th>
+                        <td>{{ perfils.direccion }}</td>                      
+                      </tr>
+                      <tr>
+                        <th>Ciudad:</th>
+                        <td>{{ perfils.ciudad }}</td>                      
+                      </tr>
+                      <tr>
+                        <th>Estado:</th>
+                        <td>{{ perfils2.estado }}</td>                      
+                      </tr>
+                      <tr>
+                        <th>Carrera:</th>
+                        <td>{{ perfils2.carrera }}</td>                      
+                      </tr>
+                      <tr>
+                        <th>Año Ingreso:</th>
+                        <td>{{ perfils2.año_ingreso }}</td>                      
+                      </tr>
+                      <tr>
+                        <th>Año Salida:</th>
+                        <td>{{ perfils2.año_salida }}</td>                      
+                      </tr>
+                      <tr>
+                        <th>Historial Laboral:</th>
+                        <td>  
+      
+    <a class="btn btn-outline-secondary" href="historial/{{ perfils.id_persona }}"> <span class="fas fa-suitcase"></span> Ver Historial</a> </td>                      
+                      </tr>
+                      
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block javascript %}
+
+{% endblock %}

@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <title>Listado Estudiantes</title>
+        <style type="text/css">
+            @page {
+                margin: 1cm;
+                @frame footer {
+                    -pdf-frame-content: footerContent;
+                    bottom: 10cm;
+                    margin-left: 9cm;
+                    margin-right: 9cm;
+                    height: 1cm;
+                }
+            }
+            table, td, th {    
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table {
+    border-collapse: collapse;
+    width: 80%;
+}
+
+th, td {
+    padding: 8px;
+}
+th.nombre{
+    width : 50%;
+}
+
+/*centramos todo el contenido del body*/
+body{width:100%; text-align:center;}
+
+/*volvemos a colocar todo a la izquierda*/
+#contenedor{width:800px; height:600px; margin:auto; text-align:left;}
+        </style>
+    </head>
+    <body>
+        <div class="col-md-10">
+                            <div class="header-text">
+                               
+                                <h1> Ficha Estudiante </h1>
+                                <p> Universidad de Playa Ancha</p>
+                            </div>
+                        </div>
+
+      <div class="table-responsive">
+                       <table class="table">
+                    <tbody>
+
+                      <tr>
+                        <th>Nombres:</th>
+                        <td>{{ perfils.nombre }}</td>                      
+                      </tr>
+                      <tr>
+                        <th>Apellidos:</th>
+                        <td>{{ perfils.apellido }}</td>
+                      </tr>
+                      <tr>
+                        <th>Rut:</th>
+                        <td>{{ perfils.rut }}-{{perfils.dverificador}}</td>
+                      </tr>
+                      <tr>
+                        <th>Teléfono:</th>
+                        <td>{{ perfils.telefono }}</td>                      
+                      </tr>
+                      <tr>
+                        <th>Fecha de Nacimiento:</th>
+                        <td>{{ perfils.fecha_nacimiento }}</td>                      
+                      </tr>
+                      <tr>
+                        <th>Correo:</th>
+                        <td>{{ perfils.correo }}</td>                      
+                      </tr>
+                      <tr>
+                        <th>Dirección:</th>
+                        <td>{{ perfils.direccion }}</td>                      
+                      </tr>
+                      <tr>
+                        <th>Ciudad:</th>
+                        <td>{{ perfils.ciudad }}</td>                      
+                      </tr>
+                      <tr>
+                        <th>Estado:</th>
+                        <td>{{ perfils2.estado }}</td>                      
+                      </tr>
+                      <tr>
+                        <th>Carrera:</th>
+                        <td>{{ perfils2.carrera }}</td>                      
+                      </tr>
+                      <tr>
+                        <th>Año Ingreso:</th>
+                        <td>{{ perfils2.año_ingreso }}</td>                      
+                      </tr>
+                      <tr>
+                        <th>Año Salida:</th>
+                        <td>{{ perfils2.año_salida }}</td>                      
+                      </tr>
+
+                      <tr>
+                        <th>Empresa:</th>
+                        <td>{{ perfils3.nombre_empresa }}</td>                      
+                      </tr>
+                      <tr>
+                        <th>Experiencia Laboral:</th>
+                        <td>{{ perfils3.experiencia_laboral }}</td>                      
+                      </tr>
+                      <tr>
+                        <th>Cargo Empresa:</th>
+                        <td>{{ perfils3.cargo }}</td>                      
+                      </tr>
+                      <tr>
+                        <th>Ciudad Empresa:</th>
+                        <td>{{ perfils3.ciudad }}</td>                      
+                      </tr>
+                       <div class="form-label-group">
+      <img src="{{ perfils.foto.path }}" alt="Smiley face" width="150" height="150" class="center">
+                          
+                     
+                    </tbody>
+                  </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+</html>

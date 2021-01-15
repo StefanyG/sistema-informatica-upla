@@ -1,0 +1,6 @@
+descargar archivo excel de muestra
+llenar el excel con los datos tal como en la muestra
+no modificar los encabezados, ni cambiar posición
+dejar id_persona id_a_desarrollo id_historial vacios
+telefono debe ser solo números, sin simbolos o espacios
+formato debe ser xlsx

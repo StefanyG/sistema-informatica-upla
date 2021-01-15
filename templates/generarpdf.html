@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <title>Listado Estudiantes</title>
+        <style type="text/css">
+            @page {
+                margin: 1cm;
+                @frame footer {
+                    -pdf-frame-content: footerContent;
+                    bottom: 0cm;
+                    margin-left: 9cm;
+                    margin-right: 9cm;
+                    height: 1cm;
+                }
+            }
+            table, td, th {    
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table {
+    border-collapse: collapse;
+    width: 80%;
+}
+
+th, td {
+    padding: 1px;
+}
+th.nombre{
+    width : 30%;
+}
+th {
+    background-color: #3B83BD;
+    color: white;
+}
+/*centramos todo el contenido del body*/
+body{width:100%; text-align:center;}
+
+/*volvemos a colocar todo a la izquierda*/
+#contenedor{width:800px; height:600px; margin:auto; text-align:left;}
+        </style>
+    </head>
+    <body>
+        <div class="col-md-10">
+                            <div class="header-text">
+                                <!-- Título y descripción -->
+                                <h2> Listado Estudiantes Titulados, Egresados y Activos de la Carrera Ingeniería en Informática
+
+                                </h2>
+                                <p> Universidad de Playa Ancha</p>
+                            </div><!-- Header buttons
+                            <div class="header-btns">
+
+                                <a href="#" class="btn btn-download">Descargar</a>
+                                <a href="#" class="btn btn-tour"> Recorrido
+                                    <i class="fa fa-angle-down"></i>
+                                </a>
+
+                            </div>-->
+                        </div>
+
+      <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                            <tr>
+                                <th>Rut</th>
+                                
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>Estado</th>
+                                <th>Promoción</th>
+                               
+                                
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for member in row %}
+                             
+                                <tr>
+                                    <td>{{ member.rut }}-{{ member.dverificador }}</td>
+                                    
+                                    <td>{{ member.nombre }}</td>
+                                    <td>{{ member.apellido }}</td>
+                                    <td>{% with member.students.all as students %}
+                                        {% for student in students %}
+                                            {{ student.estado }}
+                                        {% empty %}      
+                                        {% endfor %}
+                                    {% endwith %}</td>
+                                    <td>{% with member.students.all as students %}
+                                        {% for student in students %}
+                                            {{ student.año_ingreso }}
+                                        {% empty %}      
+                                        {% endfor %}
+                                    {% endwith %}</td>
+                                    
+                                </tr>
+                            
+                             {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+</html>

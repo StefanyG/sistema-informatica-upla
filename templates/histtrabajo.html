@@ -1,0 +1,58 @@
+{% extends 'layout/app.html' %}
+
+{% load static %}
+
+{% block body %}
+
+    <div id="content-wrapper">
+
+        <div class="container-fluid">
+            <!-- Breadcrumbs-->
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+
+                    <a href="/perfil/{{ perfils1.id_persona }}">Perfil</a>
+                </li>
+                <li class="breadcrumb-item active">Área de Desarrollo</li>
+            </ol>
+            
+            <div class="card mb-3">
+                <div class="card-header">
+                    <i class="fas fa-table"></i>
+                    Historial de Trabajo de: {{perfils1.nombre}} {{perfils1.apellido}}
+                    <a  class="btn btn-sm btn-warning btn-lg" href="{% url 'creartrabajo' %}" style="padding: 12px; float: right;  color: white;">Añadir Trabajo "Id: {{perfils1.id_persona}}" </a>
+                    
+                </div>
+                </div>
+              
+                
+                      
+                      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                            <tr>
+                                <th>Cargo</th>
+                                <th>Nombre Empresa</th>
+                                <th>Experiencia Laboral</th>
+                                 <th>Ciudad Empresa</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                              {% for member in perfils3 %}
+
+                                <tr>
+                                <td>{{ member.cargo }}</td>                      
+                                <td>{{ member.nombre_empresa }}</td>                         
+                                <td>{{ member.experiencia_laboral }}</td>                  
+                                <td>{{ member.ciudad }}</td>  
+                                </tr>
+                                {% endfor%}
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block javascript %}
+
+{% endblock %}

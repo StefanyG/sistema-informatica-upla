@@ -1,0 +1,207 @@
+{% extends 'layout/app.html' %}
+
+{% load static %}
+
+{% block body %}
+    <div id="content-wrapper">
+
+        <div class="container-fluid">
+            <!-- Breadcrumbs-->
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="{% url 'list' %}">Listado Estudiantes</a>
+                </li>
+                <li class="breadcrumb-item active">Ingresar</li>
+            </ol>
+            <div class="card mb-3">
+                <div class="card-header">
+                    <i class="fas fa-table"></i>
+                    Ingresar Persona
+                </div>
+                <div class="card-body">
+                    <form action="create" class="form-horizontal" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <div class="form-label-group">
+                                    <input type="text" class="form-control" name="nombre" placeholder="First Name" id="inputFirst" required>
+                                    <label for="inputFirst">Nombres</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-label-group">
+                                    <input type="text" class="form-control"  name="apellido" placeholder="Last Name" id="inputLast" required>
+                                    <label for="inputLast">Apellidos</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <div class="form-label-group">
+                                    <input type="text" class="form-control"  name="rut" placeholder="Description" id="inputdescription" required>
+                                    <label for="inputdescription">Rut</label>
+                                </div>
+                            </div>
+
+                             <div class="col-md-6">
+                            <div class="form-label-group">
+                                    <input type="text" class="form-control"  name="dverificador" placeholder="Description" id="inputdescriptio" required>
+                                    <label for="inputdescriptio">dv</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <div class="form-label-group">
+                                    <input type="text" class="form-control"  name="estado" placeholder="Description" id="inputestado" required>
+                                    <label for="inputestado">Estado</label>
+                                </div>
+                            </div>
+
+                             <div class="col-md-6">
+                            <div class="form-label-group">
+                                    <input type="text" class="form-control" name="carrera" placeholder="Description" id="inputcarrera" required>
+                                    <label for="inputcarrera">Carrera</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <div class="form-label-group">
+                                    <input class="form-control" type="date" name="fecha_nacimiento"  id="dateInput">
+                                    <label for="dateInput">Fecha de Nacimiento</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-label-group">
+                                    <input class="form-control" type="tel" name="telefono" placeholder="Mobile Number" id="inputMobile">
+                                    <label for="inputMobile">Teléfono</label>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <div class="form-label-group">
+                                    <input type="text" class="form-control"  name="correo" placeholder="email" id="inputcorreo" required>
+                                    <label for="inputcorreo">Correo</label>
+                                </div>
+                            </div>
+
+                             <div class="col-md-6">
+                            <div class="form-label-group">
+                                    <input type="text" class="form-control" name="direccion" placeholder="Description" id="inputdireccion" required>
+                                    <label for="inputdireccion">Dirección</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <div class="form-label-group">
+                                    <input type="text" class="form-control"  name="ciudad" placeholder="email" id="inputciudad" required>
+                                    <label for="inputciudad">Ciudad</label>
+                                </div>
+                            </div>
+
+                             <div class="col-md-6">
+                            <div class="form-label-group">
+                                    <input type="text" class="form-control" name="año_ingreso" placeholder="Description" id="inputaño_ingreso" required>
+                                    <label for="inputaño_ingreso">Año Ingreso</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <div class="form-label-group">
+                                    <input type="text" class="form-control"  name="año_salida" placeholder="email" id="inputaño_salida" required>
+                                    <label for="inputaño_salida">Año Salida</label>
+                                </div>
+                            </div>
+
+                             <div class="col-md-6">
+                            <div class="form-label-group">
+                                    <input type="text" class="form-control" name="cargo" placeholder="Description" id="inputcargo" required>
+                                    <label for="inputcargo">Cargo</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <div class="form-label-group">
+                                    <input type="text" class="form-control"  name="experiencia_laboral" placeholder="email" id="inputexperiencia_laboral" required>
+                                    <label for="inputexperiencia_laboral">Experiencia Laboral</label>
+                                </div>
+                            </div>
+
+                             <div class="col-md-6">
+                            <div class="form-label-group">
+                                    <input type="text" class="form-control" name="nombre_empresa" placeholder="Description" id="inputnombre_empresa" required>
+                                    <label for="inputnombre_empresa">Nombre Empresa</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <div class="form-label-group">
+                                    <input type="text" class="form-control"  name="ciudad" placeholder="email" id="inputciudade" required>
+                                    <label for="inputciudade">Ciudad Empresa</label>
+                                </div>
+                            </div>
+
+                            
+                        </div>
+                    </div>
+
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <div class="input-group input-group-lg">
+                                        <div class="custom-file">
+                                            <input type="file" class="form-control custom-file-input file" name="myfile" id="fileInput">
+                                            <label class="custom-file-label" id="fileLabel" for="fileInput">Subir Foto</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="input-group input-group-lg">
+                                        <div class="custom-file">
+                                            <input type="text" class="form-control" name="nombre_foto" placeholder="Descripción" id="inputFirst" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-block" type="submit">Enviar &nbsp;&nbsp;&nbsp;<span></span></button>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascript %}
+    <script type="text/javascript">
+        $(document).on('change', '.file', function (event) {
+            document.getElementById('fileLabel').innerHTML = event.target.files[0].name;
+        });
+        $("#id_username").attr("placeholder", "Usuario:");
+        $("#id_password").attr("placeholder", "Contraseña:");
+    </script>
+{% endblock %}

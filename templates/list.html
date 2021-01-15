@@ -1,0 +1,95 @@
+{% extends 'layout/app.html' %}
+
+{% load static %}
+
+{% block body %}
+    <div id="content-wrapper">
+
+        <div class="container-fluid">
+            <!-- Breadcrumbs-->
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="{% url 'home' %}">Inicio</a>
+                </li>
+                <li class="breadcrumb-item active">Listado</li>
+            </ol>
+            <div class="card mb-3">
+                <div class="card-header">
+                    <i class="fas fa-table"></i>
+                    Listado Estudiantes
+                    <a  class="btn btn-sm btn-warning btn-lg" href="{% url 'create' %}" style="padding: 12px; float: right;  color: white;">Añadir Nuevo Estudiante</a>
+
+                    <a  class="btn btn-sm btn-primary btn-lg" href="{% url 'generate-pdf' %}" style="padding: 12px; float: right;  color: white;">Generar PDF</a>
+
+                    <a  class="btn btn-sm btn-success btn-lg  " href="{% url 'export_users_xls' %}" style="padding: 12px; float: right; color: white;">Generar Excel</a>
+                </div>
+
+                <div class="card-body">
+                    {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }} alert-dismissible" role="alert">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                            <tr>
+                                <th>Id </th>
+                                <th>Rut</th>
+                               
+                                <th>Nombre</th>
+                                
+                                 <th>Estado</th>
+                                 <th>Promoción</th>
+                                 
+                                 <th>Acción</th>
+                                
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for member in tabla1 %}
+                             
+                                <tr>
+                                    <td> {{ member.id_persona}} </td>
+                                    <td>{{ member.rut }}-{{ member.dverificador }}</td>
+                                    
+                                    <td>{{ member.nombre }} {{ member.apellido }}</td>
+                                    <td>{% with member.students.all as students %}
+                                        {% for student in students %}
+                                            {{ student.estado }}
+                                        {% empty %}      
+                                        {% endfor %}
+                                    {% endwith %}</td>
+                                    <td>{% with member.students.all as students %}
+                                        {% for student in students %}
+                                            {{ student.año_ingreso }}
+                                        {% empty %}      
+                                        {% endfor %}
+                                    {% endwith %}</td>
+                                    
+                                    <td>
+                                        <a class="btn btn-outline-secondary" href="edit/{{ member.id_persona }}"> <span class="fa fa-edit"></span> </a>
+                                        <a class="btn btn-outline-success" href="perfil/{{ member.id_persona }}"><span class="fa fa-user"></span> </a>
+                                        <a class="btn btn-outline-primary" href="{% url 'creartrabajo' %}"><span class="fas fa-suitcase"></span> </a>
+                                    
+                                    </td>
+                                </tr>
+                            
+                             {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascript %}
+    <script type="text/javascript">
+        $("#id_username").attr("placeholder", "Usuario");
+        $("#id_password").attr("placeholder", "Contraseña");
+        
+    </script>
+{% endblock %}

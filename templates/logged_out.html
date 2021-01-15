@@ -1,0 +1,17 @@
+{% extends 'layout/login.html' %}
+
+
+{% block body %}
+<div class="container">
+    <div class="card card-login mx-auto mt-5">
+        <div class="card-header">Sesión finalizada</div>
+        <div class="card-body">
+
+            <div class="text-center"> 
+                <p>Cerraste sesión</p>
+                <p><a href="{% url 'login' %}">Inicia sesión</a> </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

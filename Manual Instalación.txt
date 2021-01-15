@@ -1,0 +1,16 @@
+1.- instalar python-3.6.7
+
+2.- ir a la carpeta del sistema (practica)
+
+3.- pip3 install -r requirements.txt (instalar todo lo que sale en el .txt)
+
+hacer las migraciones para la base de datos ya incluida (upla.db)
+4.- python manage.py makemigrations
+5.- python manage.py migrate
+
+y finalmente, correr el programa
+6.- python manage.py runserver
+
+Para iniciar sesión se puede registrar una cuenta desde el mismo login, o entrar con
+la de defecto (Usuario: sgv | Contraseña: practica) y desde ahí crear nuevos usuarios
+en el mismo sistema.

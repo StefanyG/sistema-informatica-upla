@@ -1,0 +1,189 @@
+{% extends 'layout/app.html' %}
+
+{% load static %}
+
+{% block body %}
+    <div id="content-wrapper">
+
+        <div class="container-fluid">
+            <!-- Breadcrumbs-->
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="{% url 'list' %}">Listado</a>
+                </li>
+                <li class="breadcrumb-item active">Editar</li>
+            </ol>
+            <div class="card mb-3">
+                <div class="card-header">
+                    <i class="fas fa-table"></i>
+                    Editar Persona
+                </div>
+                <div class="card-body">
+                    <form class="form-horizontal" action="update/{{ members.id_persona }}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    
+
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <div class="form-label-group">
+                                    <input type="text" class="form-control" value="{{ members.nombre }}" name="nombre" placeholder="First Name" id="inputFirst" required>
+                                    <label for="inputFirst">Nombres</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-label-group">
+                                    <input type="text" class="form-control" value="{{ members.apellido }}" name="apellido" placeholder="Last Name" id="inputLast" required>
+                                    <label for="inputLast">Apellidos</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <div class="form-label-group">
+                                    <input type="text" class="form-control" value="{{ members.rut }}" name="rut" placeholder="Description" id="inputdescription" required>
+                                    <label for="inputdescription">Rut</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-label-group">
+                                    <input class="form-control" type="text" value="{{ members.dverificador }}" name="dv" placeholder="dv" id="inputMobile">
+                                    <label for="inputMobile">dv</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <div class="form-label-group">
+                                    <input class="form-control" type="date" name="fecha_nacimiento" value="{{ members.fecha_nacimiento }}" id="dateInput">
+                                    <label for="dateInput">Fecha de Nacimiento</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-label-group">
+                                    <input type="tel" id="inputMobile" name="telefono" class="form-control" value="{{ members.telefono }}"   required="">
+                                    <label for="inputMobile">Telefono</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <div class="form-label-group">
+                                    <input type="city" id="inputcity" name="ciudad" class="form-control" value="{{ members.ciudad }}"   required="">
+                                    <label for="cityInput">Ciudad</label>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="form-label-group">
+                                    <input type="dir" id="inputAdress" name="direccion" class="form-control" value="{{ members.direccion }}"   required="">
+                                    <label for="inputAdress">Dirección</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <div class="form-label-group">
+                                    <input type="mail" id="inputMail" name="correo" class="form-control" value="{{ members.correo }}"   required="">
+                                    <label for="MailInput">Correo</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-label-group">
+                                    <input type="dir" id="inputyeari" name="año_ingreso" class="form-control" value="{{ members2.año_ingreso }}"   required="">
+                                    <label for="inputyeari">Año Ingreso</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <div class="form-label-group">
+                                    <input type="year" id="inputyears" name="año_salida" class="form-control" value="{{ members2.año_salida }}"   required="">
+                                    <label for="yearsInput">Año Salida</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-label-group">
+                                    <input type="dir" id="inputest" name="estado" class="form-control" value="{{ members2.estado }}"   required="">
+                                    <label for="inputest">Estado</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <div class="form-label-group">
+                                    <input type="carrera" id="inputcarre" name="carrera" class="form-control" value="{{ members2.carrera }}"   required="">
+                                    <label for="carreInput">Carrera</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-label-group">
+                                    <input type="dir" id="inputest" name="cargo" class="form-control" value="{{ members3.cargo }}"   required="">
+                                    <label for="inputest">Cargo Empresa</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <div class="form-label-group">
+                                    <input type="emp" id="inputexp" name="experiencia_laboral" class="form-control" value="{{ members3.experiencia_laboral }}"   required="">
+                                    <label for="carreInput">Experiencia Laboral</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-label-group">
+                                    <input type="dir" id="inputest" name="ciudadempresa" class="form-control" value="{{ members3.ciudad }}"   required="">
+                                    <label for="inputest">Ciudad Empresa</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <div class="form-label-group">
+                                    <input type="empresa" id="inputemp" name="nombre_empresa" class="form-control" value="{{ members3.nombre_empresa }}"   required="">
+                                    <label for="carreInput">Nombre Empresa</label>
+                                </div>
+                            </div>
+                            
+                        
+                    
+
+                  <div class="col-md-6">
+                                    <div class="input-group input-group-lg">
+                                        <div class="custom-file">
+                                            <input type="file" class="form-control custom-file-input file" name="foto" id="fileInput">
+                                            <label class="custom-file-label" id="fileLabel" for="fileInput">Subir Foto</label>
+                                        </div>
+                                    </div>
+                                </div>
+                           </div>
+                    </div>
+
+                    
+                    <button class="btn btn-primary btn-block" type="submit">Enviar &nbsp;&nbsp;&nbsp;<span></span></button>
+                </form>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascript %}
+
+{% endblock %}
